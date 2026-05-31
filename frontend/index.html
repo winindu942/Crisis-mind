@@ -9,15 +9,25 @@
 </head>
 <body>
 
+  <!-- TOAST -->
+  <div id="toast"></div>
+
   <!-- TOP NAV -->
   <nav class="navbar">
     <div class="nav-left">
       <span class="nav-logo">⚡ CrisisMind AI</span>
       <span class="nav-sub">Emergency Operations Center</span>
     </div>
+    <div class="nav-stats">
+      <span class="stat-chip critical" id="stat-critical">● 0 Critical</span>
+      <span class="stat-chip high"     id="stat-high">● 0 High</span>
+      <span class="stat-chip medium"   id="stat-medium">● 0 Medium</span>
+      <span class="stat-chip low"      id="stat-low">● 0 Low</span>
+    </div>
     <div class="nav-right">
       <span class="live-dot"></span>
       <span>LIVE</span>
+      <span id="clock" style="margin-left:12px;color:#6b7a99;font-size:0.8rem"></span>
     </div>
   </nav>
 
@@ -67,7 +77,17 @@
 
   </div>
 
+  <!-- DEMO MODE CAPTION -->
+  <div id="demoOverlay" style="display:none">
+    <div id="demoCaption"></div>
+    <div id="demoProgress"><div id="demoBar"></div></div>
+  </div>
+
+  <!-- DEMO BUTTON -->
+  <button id="demoBtn" onclick="startDemo()">▶ Start Demo</button>
+
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="app.js"></script>
+  <script src="demo.js"></script>
 </body>
 </html>
