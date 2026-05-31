@@ -176,3 +176,41 @@ async function pollIncidents() {
 }
 
 setInterval(pollIncidents, 10000);
+
+// --- PRELOAD DEMO SCENARIOS ---
+const demoScenarios = [
+  {
+    report_text: "Large fire spreading near a school, children need evacuation",
+    location: "Kandy City Center",
+    lat: 7.2906,
+    lng: 80.6337
+  },
+  {
+    report_text: "Strong tremors felt, buildings cracking and road collapsed",
+    location: "Galle Fort",
+    lat: 6.0535,
+    lng: 80.2210
+  },
+  {
+    report_text: "Chemical gas leak at industrial plant, toxic fumes spreading",
+    location: "Kelaniya Industrial Zone",
+    lat: 7.0,
+    lng: 79.92
+  }
+];
+
+async function preloadDemos() {
+  for (const scenario of demoScenarios) {
+    const res = await fetch(`${API}/report`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(scenario)
+    });
+    const incident = await res.json();
+    incidents.push(incident);
+    addMarker(incident);
+  }
+  renderIncidentList();
+}
+
+preloadDemos();
