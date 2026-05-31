@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CrisisMind AI — EOC Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <span class="nav-logo">⚡ CrisisMind AI</span>
+      <span class="nav-sub">Emergency Operations Center</span>
+    </div>
+    <div class="nav-right">
+      <span class="live-dot"></span>
+      <span>LIVE</span>
+    </div>
+  </nav>
+
+  <!-- MAIN LAYOUT -->
+  <div class="layout">
+
+    <!-- LEFT PANEL: Submit + Incident List -->
+    <div class="left-panel">
+
+      <!-- Submit Report -->
+      <div class="card">
+        <h2>Submit Incident Report</h2>
+        <textarea id="reportText" placeholder="Describe the incident..."></textarea>
+        <input id="locationText" type="text" placeholder="Location (e.g. Colombo Fort)" />
+        <div class="coords-row">
+          <input id="latInput" type="number" step="any" placeholder="Latitude" value="6.9271"/>
+          <input id="lngInput" type="number" step="any" placeholder="Longitude" value="79.8612"/>
+        </div>
+        <button id="submitBtn" onclick="submitReport()">Submit Report</button>
+      </div>
+
+      <!-- Active Incidents -->
+      <div class="card">
+        <h2>Active Incidents</h2>
+        <div id="incidentList">
+          <p class="empty-msg">No incidents yet.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CENTER: Map -->
+    <div class="center-panel">
+      <div class="card map-card">
+        <h2>Live Incident Map</h2>
+        <div id="map"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT PANEL: Incident Detail -->
+    <div class="right-panel">
+      <div class="card detail-card" id="detailPanel">
+        <h2>Incident Detail</h2>
+        <p class="empty-msg">Select an incident to view details.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
