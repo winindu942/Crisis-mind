@@ -49,18 +49,98 @@ Crisis-mind/
 
 ## Setup & Run
 
-### 1. Install dependencies
+### Prerequisites
+- Python 3.12 — download from https://www.python.org/downloads/
+- Git — download from https://git-scm.com/downloads
+- Any modern browser (Chrome, Edge, Firefox)
+
+---
+
+### Option A — Using uv (recommended, faster)
+
+**1. Install uv**
 ```bash
-pip install fastapi uvicorn
+pip install uv
 ```
 
-### 2. Start the backend
+**2. Clone the repo**
+```bash
+git clone https://github.com/winindu942/Crisis-mind.git
+cd Crisis-mind
+```
+
+**3. Create virtual environment and install dependencies**
+```bash
+uv venv
+uv pip install -r requirements.txt
+```
+
+**4. Activate the virtual environment**
+
+Windows:
+```bash
+.venv\Scripts\activate
+```
+Mac/Linux:
+```bash
+source .venv/bin/activate
+```
+
+**5. Start the backend server**
 ```bash
 uvicorn backend.main:app --reload --port 8001
 ```
 
-### 3. Open the dashboard
-Open `frontend/index.html` directly in your browser.
+**6. Open the dashboard**
+
+Open `frontend/index.html` directly in your browser. On Windows you can double-click the file.
+
+---
+
+### Option B — Using plain pip (no uv needed)
+
+**1. Clone the repo**
+```bash
+git clone https://github.com/winindu942/Crisis-mind.git
+cd Crisis-mind
+```
+
+**2. Create a virtual environment**
+```bash
+python -m venv venv
+```
+
+**3. Activate the virtual environment**
+
+Windows:
+```bash
+venv\Scripts\activate
+```
+Mac/Linux:
+```bash
+source venv/bin/activate
+```
+
+**4. Install dependencies**
+```bash
+pip install fastapi uvicorn
+```
+
+**5. Start the backend server**
+```bash
+uvicorn backend.main:app --reload --port 8001
+```
+
+**6. Open the dashboard**
+
+Open `frontend/index.html` directly in your browser. On Windows you can double-click the file.
+
+---
+
+### Verify it's working
+
+- Backend running: visit `http://127.0.0.1:8001/incidents` — should return `[]`
+- Dashboard: open `frontend/index.html` — map should load with 4 demo incidents
 
 ---
 
