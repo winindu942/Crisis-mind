@@ -10,7 +10,7 @@ __pycache__/
 .env
 .env.local
 
-# uv
+# uv — keep pyproject.toml and uv.lock, ignore generated files
 .python-version
 
 # OS files
