@@ -40,23 +40,21 @@ Crisis-mind/
 │   ├── style.css
 │   ├── app.js                ← Dashboard logic + API calls
 │   └── demo.js               ← Automated demo mode
+├── pyproject.toml
 ├── Dockerfile
-├── docker-compose.yml
-└── requirements.txt
+└── docker-compose.yml
 ```
 
 ---
 
-## Setup & Run
+## Setup & Run (Windows)
 
 ### Prerequisites
-- Python 3.12 — download from https://www.python.org/downloads/
+- Python 3.12 — download from https://www.python.org/downloads/ (check "Add Python to PATH")
 - Git — download from https://git-scm.com/downloads
 - Any modern browser (Chrome, Edge, Firefox)
 
 ---
-
-### Option A — Using uv (recommended, faster)
 
 **1. Install uv**
 ```bash
@@ -69,78 +67,36 @@ git clone https://github.com/winindu942/Crisis-mind.git
 cd Crisis-mind
 ```
 
-**3. Create virtual environment and install dependencies**
+**3. Create virtual environment**
 ```bash
 uv venv
-uv pip install -r requirements.txt
 ```
 
-**4. Activate the virtual environment**
-
-Windows:
+**4. Activate it**
 ```bash
 .venv\Scripts\activate
 ```
-Mac/Linux:
+
+**5. Install dependencies**
 ```bash
-source .venv/bin/activate
+uv sync
 ```
 
-**5. Start the backend server**
-```bash
-uvicorn backend.main:app --reload --port 8001
-```
-
-**6. Open the dashboard**
-
-Open `frontend/index.html` directly in your browser. On Windows you can double-click the file.
-
----
-
-### Option B — Using plain pip (no uv needed)
-
-**1. Clone the repo**
-```bash
-git clone https://github.com/winindu942/Crisis-mind.git
-cd Crisis-mind
-```
-
-**2. Create a virtual environment**
-```bash
-python -m venv venv
-```
-
-**3. Activate the virtual environment**
-
-Windows:
-```bash
-venv\Scripts\activate
-```
-Mac/Linux:
-```bash
-source venv/bin/activate
-```
-
-**4. Install dependencies**
-```bash
-pip install fastapi uvicorn
-```
-
-**5. Start the backend server**
+**6. Start the backend**
 ```bash
 uvicorn backend.main:app --reload --port 8001
 ```
 
-**6. Open the dashboard**
+**7. Open the dashboard**
 
-Open `frontend/index.html` directly in your browser. On Windows you can double-click the file.
+Open `frontend/index.html` in your browser — you can double-click it in File Explorer.
 
 ---
 
 ### Verify it's working
 
-- Backend running: visit `http://127.0.0.1:8001/incidents` — should return `[]`
-- Dashboard: open `frontend/index.html` — map should load with 4 demo incidents
+- Go to `http://127.0.0.1:8001/incidents` — should return `[]`
+- Dashboard should load with 4 demo incidents on the map
 
 ---
 
